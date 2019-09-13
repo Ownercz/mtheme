@@ -124,10 +124,27 @@
 % Stack Exchange question}.
 %
 %    \begin{macrocode}
+
     \vspace*{\fill}
-    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
-    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
-    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+               \begin{figure}[h]
+                   \centering
+               \begin{minipage}[t]{.3\textwidth}
+                  \begin{flalign} 
+                     \tikz\node[circle,draw,minimum size=2cm,path picture={\node at (path picture bounding box.center){\includegraphics[width=60px]{source/ownphoto.jpg}};}]{}; \nonumber
+                  \end{flalign} 
+               \end{minipage}%
+               \begin{minipage}[t]{0.5\textwidth}
+                 \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi  \nonumber 
+                 \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi  \nonumber 
+                 \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi  \nonumber 
+               \end{minipage}%
+               \begin{minipage}[t]{0.2\textwidth}
+               \begin{flalign} 
+                 \includegraphics[width=1.2\textwidth]{source/seznamLogo.png}   \nonumber 
+                 \end{flalign} 
+                   \end{minipage}
+               \end{figure}
+    \vspace{-3em}
     \vfill
     \vspace*{1mm}
   \end{minipage}
