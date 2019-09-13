@@ -44,6 +44,8 @@
 \RequirePackage{calc}
 \RequirePackage{pgfopts}
 \RequirePackage{tikz}
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
 %    \end{macrocode}
 %
 %
@@ -102,9 +104,14 @@
 % space on the title slide.
 %    \begin{macrocode}
 \setbeamertemplate{title page}{
+  \definecolor{frontdowncolor}{HTML}{d2d2d2}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[frontdowncolor] ($(current page.north west)-(0cm,6cm)$) rectangle (current page.south east);
+  \end{tikzpicture}
   \begin{minipage}[b][\paperheight]{\textwidth}
+    \vspace*{8em}
     \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
-    \vfill%
+    %\vfill%
     \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
     \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
     \usebeamertemplate*{title separator}
@@ -117,6 +124,7 @@
 % Stack Exchange question}.
 %
 %    \begin{macrocode}
+    \vspace*{\fill}
     \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
     \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
     \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
